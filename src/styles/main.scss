@@ -89,12 +89,9 @@ body {
         letter-spacing: 0.023em;
     }
 
-    &__space {
+    &__space,
+    &__space-mobile {
         border: 1px solid #DDDDDD;
-    }
-
-    &__results {
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);
     }
 
     &-inner {
@@ -203,6 +200,41 @@ body {
             }
         }
     }
+
+    &__results {
+        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);
+        padding: 15px;
+        background: #FBFBFB;
+
+        &__title {
+            font-family: Graphik;
+            font-style: normal;
+            font-weight: 600;
+            font-size: 25px;
+        }
+
+        &__group {
+            display: flex;
+            justify-content: space-between;
+            font-family: Helvetica Neue;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 12.9px;
+            letter-spacing: 0.023em;
+            color: #5D5D5D;
+            align-items: center;
+        }
+
+        &__cost {
+            font-family: Graphik;
+            font-style: normal;
+            font-weight: normal;
+            font-size: 16px;
+            color: #000000;
+            font-weight: 600;
+            margin: 0px;
+        }
+    }
 }
 
 @include breakpoint(sm) {
@@ -219,6 +251,10 @@ body {
     .main-container {
         display: flex;
         padding: 20px 50px 0px 150px;
+
+        &__space-mobile {
+            border: 0px solid #DDDDDD;
+        }
     
         &__calculator {
             width: 677px;
@@ -227,11 +263,6 @@ body {
 
         &__title {
             font-size: 14.5px;
-        }
-
-        &__results {
-            width: 677px;
-            height: 648px;
         }
 
         &-inner {
@@ -269,6 +300,26 @@ body {
 
                     }
                 }
+        }
+
+        &__results {
+            width: 463px;
+            height: 540px;
+            position: relative;
+            top: 40px;
+
+            &__group {
+                font-size: 16.1px;
+                display: inline-block;
+            }
+
+            &__cost {
+                font-size: 25px;
+            }
+
+            &__total {
+                font-size: 20px;
+            }
         }
     }
 
