@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mortgage Calculator</title>
+</head>
+<body>
+    <header class="header">
+        <h1 class="header__logo">Mortgage Calculator</h1>
+    </header>
+    <section class="main-container">
+        <div class="main-container__calculator">
+            <h2 class="main-container__title">Change values to calculate your results</h2>
+            <hr class="main-container__space"></hr>
+            <div class="main-container-inner">
+                <div class="main-container-inner__sliders-group">
+                    <label for="years-of-mortgage" class="main-container-inner__sliders-group__main-label">Years of mortgage</label>
+                    <div class="main-container-inner__sliders-group__years-group">
+                        <label for="years-of-mortgage" class="main-container-inner__sliders-group__label">1</label>
+                        <input type="range" id="years-of-mortgage" min="1" max="40" value="30" name="years-of-mortgage" class="main-container-inner__sliders-group__slider">
+                        <label for="years-of-mortgage" class="main-container-inner__sliders-group__label">40</label>
+                        <input type="text" name="years-of-mortgage" value="30" class="main-container-inner__sliders-group__text">
+                    </div>
+                </div>
+                <div class="main-container-inner__sliders-group">
+                    <label for="rate-of-interest" class="main-container-inner__sliders-group__main-label">Rate of interest (%)</label>
+                    <div class="main-container-inner__sliders-group__years-group">
+                        <label for="years-of-mortgage" class="main-container-inner__sliders-group__label">1</label>
+                        <input type="range" id="rate-of-interest" min="0.1" max="10" name="rate-of-interest" value="5" class="main-container-inner__sliders-group__slider">
+                        <label for="rate-of-interest" class="main-container-inner__sliders-group__label">10</label>
+                        <input type="text" value="5" name="rate-of-interest" class="main-container-inner__sliders-group__text">
+                    </div>
+                </div>
+                <div class="main-container-inner__texts-group">
+                    <div class="main-container-inner__texts-group__data-group">
+                        <label for="loan-amount" class="main-container-inner__texts-group__loan-amount-label">Loan Amount</label>
+                        <input type="text" value="$ 400,000" name="loan-amount" class="main-container-inner__texts-group__loan-amount-box">
+                        <div class="main-container-inner__texts-group-inner-container">
+                            <div class="main-container-inner__texts-group-inner-container__annual-tax-group">
+                                <label for="rate-of-interest" class="main-container-inner__texts-group__annual-tax-label">Annual Tax</label>
+                                <input type="text" value="$ 1000" name="annual-tax" class="main-container-inner__texts-group__annual-tax-box">
+                            </div>
+                            <div class="main-container-inner__texts-group-inner-container__annual-insurance-group">
+                                <label for="rate-of-interest" class="main-container-inner__texts-group__annual-insurance-label">Annual Insurance</label>
+                                <input type="text" value="$ 300" name="annual-insurance" class="main-container-inner__texts-group__annual-insurance-box">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <button class="main-container-inner__action">Calculate</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-container__results">
+            <h2>Results</h2>
+        </div>
+    </section>
+
+    <script src="bundle.js"></script>
+</body>
+</html>
