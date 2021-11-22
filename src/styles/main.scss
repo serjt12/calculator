@@ -171,6 +171,22 @@ body {
         &__texts-group {
             width: 100%;
 
+            &__warning {
+                &-hidden {
+                    display: none;
+                }
+
+                &-visible {
+                    margin: 0px;
+                    font-family: Helvetica Neue;
+                    font-size: 12.9px;
+                    line-height: 150%;
+                    letter-spacing: 0.023em;
+                    color: #D83E00;
+                    display: block;
+                }
+            } 
+
             &__loan-amount-label,
             &__annual-tax-label,
             &__annual-insurance-label {
@@ -182,6 +198,10 @@ body {
             &__annual-insurance-box {
                 @include textBox;
                 width: 120px;
+
+                &-error {
+                    border: 1px solid #D83E00;
+                }
             }
 
             &__loan-amount-box {
@@ -205,6 +225,10 @@ body {
         box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);
         padding: 15px;
         background: #FBFBFB;
+
+        &-hidden-mobile {
+            display: none;
+        }
 
         &__title {
             font-family: Graphik;
@@ -304,9 +328,20 @@ body {
 
         &__results {
             width: 463px;
+            z-index: -1;
             height: 540px;
             position: relative;
             top: 40px;
+
+            &-hidden-mobile {
+                display: block;
+                width: 463px;
+                z-index: -1;
+                height: 540px;
+                position: relative;
+                top: 40px;
+                margin-left: 32px;
+            }
 
             &__group {
                 font-size: 16.1px;

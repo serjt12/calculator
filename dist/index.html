@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="icon" href="../src/assets/favicon.ico" sizes="any">
+    
     <title>Mortgage Calculator</title>
 </head>
 <body>
@@ -19,61 +22,64 @@
                     <label for="years-of-mortgage" class="main-container-inner__sliders-group__main-label">Years of mortgage</label>
                     <div class="main-container-inner__sliders-group__years-group">
                         <label for="years-of-mortgage" class="main-container-inner__sliders-group__label">1</label>
-                        <input type="range" id="years-of-mortgage" min="1" max="40" value="30" name="years-of-mortgage" class="main-container-inner__sliders-group__slider">
+                        <input type="range" id="years-of-mortgage" min="1" max="40" name="years-of-mortgage" oninput="setYearsText(this.value)" class="main-container-inner__sliders-group__slider" />
                         <label for="years-of-mortgage" class="main-container-inner__sliders-group__label">40</label>
-                        <input type="text" name="years-of-mortgage" value="30" class="main-container-inner__sliders-group__text">
+                        <input type="text" name="years-of-mortgage" class="main-container-inner__sliders-group__text" />
                     </div>
                 </div>
                 <div class="main-container-inner__sliders-group">
                     <label for="rate-of-interest" class="main-container-inner__sliders-group__main-label">Rate of interest (%)</label>
                     <div class="main-container-inner__sliders-group__years-group">
-                        <label for="years-of-mortgage" class="main-container-inner__sliders-group__label">1</label>
-                        <input type="range" id="rate-of-interest" min="0.1" max="10" name="rate-of-interest" value="5" class="main-container-inner__sliders-group__slider">
+                        <label for="rate-of-interest" class="main-container-inner__sliders-group__label">1</label>
+                        <input type="range" id="rate-of-interest" step="0.1" min="0.1" max="10" name="rate-of-interest" oninput="setRateText(this.value)" class="main-container-inner__sliders-group__slider" />
                         <label for="rate-of-interest" class="main-container-inner__sliders-group__label">10</label>
-                        <input type="text" value="5" name="rate-of-interest" class="main-container-inner__sliders-group__text">
+                        <input type="text" name="rate-of-interest" class="main-container-inner__sliders-group__text" />
                     </div>
                 </div>
                 <div class="main-container-inner__texts-group">
                     <div class="main-container-inner__texts-group__data-group">
                         <label for="loan-amount" class="main-container-inner__texts-group__loan-amount-label">Loan Amount</label>
-                        <input type="text" value="$ 400,000" name="loan-amount" class="main-container-inner__texts-group__loan-amount-box">
+                        <input type="text" value="$ " name="loan-amount" id="loan-amount" class="main-container-inner__texts-group__loan-amount-box">
+                        <span id="warning-loan" class="main-container-inner__texts-group__warning-hidden"><p> Mandatory field </p></span>
                         <div class="main-container-inner__texts-group-inner-container">
                             <div class="main-container-inner__texts-group-inner-container__annual-tax-group">
-                                <label for="rate-of-interest" class="main-container-inner__texts-group__annual-tax-label">Annual Tax</label>
-                                <input type="text" value="$ 1000" name="annual-tax" class="main-container-inner__texts-group__annual-tax-box">
+                                <label for="annual-tax" class="main-container-inner__texts-group__annual-tax-label">Annual Tax</label>
+                                <input type="text" value="$ " id="annual-tax" name="annual-tax" class="main-container-inner__texts-group__annual-tax-box">
+                                <span id="warning-tax" class="main-container-inner__texts-group__warning-hidden"><p> Mandatory field </p></span>
                             </div>
                             <div class="main-container-inner__texts-group-inner-container__annual-insurance-group">
-                                <label for="rate-of-interest" class="main-container-inner__texts-group__annual-insurance-label">Annual Insurance</label>
-                                <input type="text" value="$ 300" name="annual-insurance" class="main-container-inner__texts-group__annual-insurance-box">
+                                <label for="annual-insurance" class="main-container-inner__texts-group__annual-insurance-label">Annual Insurance</label>
+                                <input type="text" value="$ " id="annual-insurance" name="annual-insurance" class="main-container-inner__texts-group__annual-insurance-box">
+                                <span id="warning-insurance" class="main-container-inner__texts-group__warning-hidden"><p> Mandatory field </p></span>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div>
-                    <button class="main-container-inner__action">Calculate</button>
+                    <button id="calculate-button" class="main-container-inner__action">Calculate</button>
                 </div>
             </div>
         </div>
-        <div class="main-container__results">
+        <div id='results-container' class="main-container__results-hidden-mobile">
             <h2 class="main-container__results__title">Your results</h2>
             <span class="main-container__results__group">
                 <p>Principal & Interest</p>
-                <p class="main-container__results__cost">$ 1.438.79</p>
+                <p class="main-container__results__cost" id="principal-interest">$ --</p>
             </span>
             <hr class="main-container__space-mobile"></hr>
             <span class="main-container__results__group">
                 <p>Tax</p>
-                <p class="main-container__results__cost">$ 83.33</p>
+                <p class="main-container__results__cost" id="tax">$ --</p>
             </span>
             <hr class="main-container__space-mobile"></hr>
             <span class="main-container__results__group">
                 <p>Insurance</p>
-                <p class="main-container__results__cost">$ 25.00</p>
+                <p class="main-container__results__cost" id="monthly-insurance">$ --</p>
             </span>
             <hr class="main-container__space"></hr>
             <span class="main-container__results__group">
                 <p class="main-container__results__total">Total Monthly Payment</p>
-                <p class="main-container__results__cost">$ 1.547.12</p>
+                <p class="main-container__results__cost" id="total-monthly">$ --</p>
             </span>
             <hr class="main-container__space-mobile"></hr>
         </div>
