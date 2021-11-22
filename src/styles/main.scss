@@ -1,16 +1,10 @@
 @import "mixin";
 
-@mixin textBox {
-    height: 48px;
-    border: 1px solid #BBBCBC;
-    box-sizing: border-box;
-    border-radius: 8px;
-    padding: 24px;
-}
-
-@mixin label {
-    font-size: 14.5px;
-    padding: 21px 0px 14px;
+@font-face {
+    font-family: 'HelveticaNeue';
+    font-weight: 600;
+    font-style: normal;
+    src: url("../assets/fonts/rebrand/helveticaneue.woff2") format('woff2');
 }
 
 @font-face {
@@ -19,38 +13,46 @@
     font-style: normal;
     src: url("../assets/fonts/rebrand/Graphik-Regular-Web.woff2") format('woff2');
 }
+
 @font-face {
     font-family: 'GraphikMedium';
     font-weight: 100;
     font-style: lightest;
     src: url("../assets/fonts/rebrand/Graphik-Medium.woff2") format('woff2');
 }
+
 @font-face {
     font-family: 'GraphikSemibold';
     font-weight: 600;
     font-style: semibold;
     src: url("../assets/fonts/rebrand/Graphik-Semibold-Web.woff2") format('woff2');
 }
+
 @font-face {
-    font-family: 'PublicoBanner';
+    font-family: 'PublicoBannerBold';
     font-weight: 700;
     font-style: bold;
     src: url("../assets/fonts/rebrand/PublicoBanner-Bold-Web.woff2") format('woff2');
 }
+
 @font-face {
-    font-family: 'PublicoBanner';
+    font-family: 'PublicoBannerMedium';
     font-weight: 100;
     font-style: lightest;
     src: url("../assets/fonts/rebrand/PublicoBanner-Medium-Web.woff2") format('woff2');
 }
+
 @font-face {
-    font-family: 'PublicoBanner';
+    font-family: 'PublicoBannerRegular';
     font-weight: 400;
     font-style: normal;
     src: url("../assets/fonts/rebrand/PublicoBanner-Regular-Web.woff2") format('woff2');
 }
+
 @font-face {
     font-family: 'PublicoHeadline';
+    font-weight: 700;
+    font-style: normal;
     src: url("../assets/fonts/rebrand/PublicoHeadline-Medium-Web.woff2") format('woff2');
 }
 
@@ -64,7 +66,7 @@ body {
     &__logo {
         padding: 0px 20px 10px;
         font-size: 20px;
-        font-family: PublicoHeadline;
+        font-family: 'PublicoHeadline';
         font-weight: normal;
         line-height: 125%;
         letter-spacing: -0.013em;
@@ -78,11 +80,12 @@ body {
     &__calculator {
         box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);
         height: 560px;
-        padding: 10px;
+        padding: 25px;
+        border-radius: 8px;
     }
 
     &__title {
-        font-family: Helvetica Neue;
+        font-family: 'HelveticaNeue';
         font-weight: normal;
         font-size: 12.9px;
         line-height: 150%;
@@ -111,9 +114,7 @@ body {
             margin: 15px 0px;
 
             &__main-label {
-                font-family: GraphikRegular;
-                font-style: normal;
-                font-weight: normal;
+                @include label;
                 font-size: 12.8px;
                 line-height: 150%;
             }
@@ -122,6 +123,7 @@ body {
                 @include textBox;
                 width: 88px;
                 text-align: center;
+                font-size: 16px;
             }
 
             &__years-group {
@@ -178,7 +180,7 @@ body {
 
                 &-visible {
                     margin: 0px;
-                    font-family: Helvetica Neue;
+                    font-family: 'HelveticaNeue';
                     font-size: 12.9px;
                     line-height: 150%;
                     letter-spacing: 0.023em;
@@ -222,7 +224,6 @@ body {
     }
 
     &__results {
-        box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.09);
         padding: 15px;
         background: #FBFBFB;
 
@@ -231,7 +232,7 @@ body {
         }
 
         &__title {
-            font-family: Graphik;
+            font-family: 'GraphikSemibold';
             font-style: normal;
             font-weight: 600;
             font-size: 25px;
@@ -240,9 +241,7 @@ body {
         &__group {
             display: flex;
             justify-content: space-between;
-            font-family: Helvetica Neue;
-            font-style: normal;
-            font-weight: normal;
+            font-family: 'HelveticaNeue';
             font-size: 12.9px;
             letter-spacing: 0.023em;
             color: #5D5D5D;
@@ -250,13 +249,23 @@ body {
         }
 
         &__cost {
-            font-family: Graphik;
+            font-family: 'GraphikRegular';
             font-style: normal;
             font-weight: normal;
             font-size: 16px;
             color: #000000;
             font-weight: 600;
             margin: 0px;
+
+            &-inactive {
+                color: #BBBCBC;
+                font-family: 'GraphikRegular';
+                font-style: normal;
+                font-weight: normal;
+                font-size: 16px;
+                font-weight: 600;
+                margin: 0px;
+            }
         }
     }
 }
@@ -275,6 +284,7 @@ body {
     .main-container {
         display: flex;
         padding: 20px 50px 0px 150px;
+        flex-wrap: wrap;
 
         &__space-mobile {
             border: 0px solid #DDDDDD;
@@ -306,7 +316,7 @@ body {
                 }
 
                 &__label {
-                    font-family: Graphik;
+                    font-family: 'GraphikSemibold';
                     font-size: 20px;
                     line-height: 150%;
                 }
@@ -350,6 +360,10 @@ body {
 
             &__cost {
                 font-size: 25px;
+
+                &-inactive {
+                    font-size: 25px;
+                }
             }
 
             &__total {

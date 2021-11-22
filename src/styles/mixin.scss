@@ -37,3 +37,25 @@
         }
     }
 }
+
+@mixin textBox {
+    height: 48px;
+    border: 1px solid #BBBCBC;
+    box-sizing: border-box;
+    border-radius: 8px;
+    padding: 24px;
+    font-family: 'GraphikMedium';
+
+    &:focus {
+        outline: none !important;
+        border: 1px solid #316EEF;
+        box-sizing: border-box;
+        border-radius: 8px;
+    }
+}
+
+@mixin label {
+    font-size: 14.5px;
+    padding: 21px 0px 14px;
+    font-family: 'GraphikRegular';
+}
