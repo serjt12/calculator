@@ -69,8 +69,12 @@ To get a local copy up and running follow these steps.
    ```sh
    npm install
    ```
-4. Go to the URL:
-   [localhost:8080](http://localhost:8080)
+3. Run the app
+   ```sh
+   npm run start
+   ```
+4. The following URL will open in a new browser tab:
+   [localhost:8080](http://localhost:8080/dist/)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
